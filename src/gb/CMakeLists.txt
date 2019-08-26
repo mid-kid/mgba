@@ -17,7 +17,11 @@ set(SOURCE_FILES
 
 set(SIO_FILES
 	sio/lockstep.c
-	sio/printer.c)
+	sio/printer.c
+	sio/mobile.c
+	sio/libmobile/mobile.c
+	sio/libmobile/commands.c
+	sio/libmobile/weak_defs.c)
 
 set(EXTRA_FILES
 	extra/proxy.c)

@@ -23,6 +23,7 @@
 
 #ifdef M_CORE_GB
 #include <mgba/internal/gb/sio/printer.h>
+#include <mgba/internal/gb/sio/mobile.h>
 #endif
 
 #ifdef M_CORE_GBA
@@ -148,6 +149,8 @@ public slots:
 #ifdef M_CORE_GB
 	void attachPrinter();
 	void detachPrinter();
+	void attachMobile();
+	void detachMobile();
 	void endPrint();
 #endif
 
@@ -252,6 +255,11 @@ private:
 		GBPrinter d;
 		CoreController* parent;
 	} m_printer;
+
+	struct QGBMobile {
+		GBMobile d;
+		CoreController* parent;
+	} m_mobile;
 #endif
 
 #ifdef M_CORE_GBA

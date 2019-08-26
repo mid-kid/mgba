@@ -758,6 +758,27 @@ void CoreController::endPrint() {
 	Interrupter interrupter(this);
 	GBPrinterDonePrinting(&m_printer.d);
 }
+
+void CoreController::attachMobile() {
+	if (platform() != PLATFORM_GB) {
+		return;
+	}
+	GB* gb = static_cast<GB*>(m_threadContext.core->board);
+	clearMultiplayerController();
+	GBMobileCreate(&m_mobile.d);
+	m_mobile.parent = this;
+	Interrupter interrupter(this);
+	GBSIOSetDriver(&gb->sio, &m_mobile.d.d);
+}
+
+void CoreController::detachMobile() {
+	if (platform() != PLATFORM_GB) {
+		return;
+	}
+	Interrupter interrupter(this);
+	GB* gb = static_cast<GB*>(m_threadContext.core->board);
+	GBSIOSetDriver(&gb->sio, nullptr);
+}
 #endif
 
 #ifdef M_CORE_GBA

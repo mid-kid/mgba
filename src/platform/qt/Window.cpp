@@ -1309,6 +1309,16 @@ void Window::setupMenu(QMenuBar* menubar) {
 		m_controller->attachPrinter();
 	}, "emu");
 	m_platformActions.insert(PLATFORM_GB, gbPrint);
+
+	Action* gbMobile = addGameAction(tr("Mobile Adapter GB (Attach)"), "gbMobile", [this]() {
+		m_controller->attachMobile();
+	}, "emu");
+	m_platformActions.insert(PLATFORM_GB, gbMobile);
+
+	Action* gbMobileDetach = addGameAction(tr("Mobile Adapter GB (Detach)"), "gbMobileDetach", [this]() {
+		m_controller->detachMobile();
+	}, "emu");
+	m_platformActions.insert(PLATFORM_GB, gbMobileDetach);
 #endif
 
 #ifdef M_CORE_GBA

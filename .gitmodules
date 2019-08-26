@@ -1,0 +1,3 @@
+[submodule "MobileAdapterGB"]
+	path = MobileAdapterGB
+	url = git@github.com:REONTeam/ArduinoAdapterGB.git
